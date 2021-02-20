@@ -1,6 +1,8 @@
 copy .env.example to .env
+run npm run start
 
-api host/buypubg
+api url:
+http://localhost:3000/buypubg
 
 request
 {
