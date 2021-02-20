@@ -1,4 +1,7 @@
-copy .env.example to .env and npm run start
+copy .env.example to .env  
+
+npm install
+npm run start  
 
 api url:
 http://localhost:3000/buypubg
