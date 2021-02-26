@@ -13,7 +13,7 @@ router.post('/buypubg', async (req, res) => {
   // })
 
   const midas = new MidasScraper('market.ptgdinnusa@gmail.com', 'Weweasas1', 'charlieputin11@yahoo.com', 'lapakgaming123', req.body.key)
-  midas.buyPubg(req.body.playerId, req.body.productId, async (result) => {
+  midas.buyPubg(req.body.playerId.toString(), req.body.productId, async (result) => {
     // if (result.status == 'success') {
     //   order.status = 'success'
     //   order.lastStep = result.step
