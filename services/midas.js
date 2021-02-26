@@ -107,10 +107,13 @@ class MidasScraper {
     console.log('click pay button unipin > ');
     console.log('took', Date.now() - this.start, 'ms');
     this.step = 'pay unipin'
-
-    return { status: 'success', step: this.step }
-    // await page.screenshot({ path: 'ss.png' });
-
+    await page.waitForNavigation({ waitUntil: 'networkidle2' })
+    try {
+      const trans_id = await page.$eval('#trans_id', el => el.textContent);
+      return { status: 'success', step: this.step, supplierReference:trans_id }
+    } catch (error) {
+      return { status: 'success', step: this.step, supplierReference:'' }
+    }
   }
 }
 

@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express()
 const db = require("./models");
 const router = require("./routes");
-db.sequelize.sync();
+// db.sequelize.sync();
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
