@@ -1,29 +1,11 @@
-// const { OrderModel } = require('../models')
 const MidasScraper = require('../services/midas')
-
 const router = require('express').Router()
+require('dotenv').config()
 
 router.post('/buypubg', async (req, res) => {
-
-  // const order = await OrderModel.create({
-  //   productId: req.body.productId,
-  //   playerId: req.body.playerId,
-  //   orderId: req.body.orderId,
-  //   status: 'pending',
-  // })
-
-  const midas = new MidasScraper('market.ptgdinnusa@gmail.com', 'Weweasas1', 'charlieputin11@yahoo.com', 'lapakgaming123', req.body.key)
+  console.log(process.env.UNIPIN_PASSWORD);
+  const midas = new MidasScraper(req.body.midasUsername, req.body.midasPassword, process.env.UNIPIN_USERNAME, process.env.UNIPIN_PASSWORD, process.env.UNIPIN_KEY)
   midas.buyPubg(req.body.playerId.toString(), req.body.productId, async (result) => {
-    // if (result.status == 'success') {
-    //   order.status = 'success'
-    //   order.lastStep = result.step
-    //   await order.save()
-    // }
-    // else {
-    //   order.status = 'failed'
-    //   order.lastStep = result.step
-    //   await order.save()
-    // }
     return res.json(result)
   })
 
