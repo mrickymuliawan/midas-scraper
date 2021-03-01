@@ -113,9 +113,9 @@ class MidasScraper {
     await page.waitForNavigation({ waitUntil: 'networkidle2' })
     try {
       const trans_id = await page.$eval('#trans_id', el => el.textContent);
-      return { status: 'SUCCESS', data: { step: this.step, supplierReference: trans_id } }
+      return { status: 'SUCCESS', data: { step: this.step, providerReference: trans_id } }
     } catch (error) {
-      return { status: 'SUCCESS', data: { step: this.step, supplierReference: '' } }
+      return { status: 'SUCCESS', data: { step: this.step, providerReference: '' } }
     }
   }
 }
