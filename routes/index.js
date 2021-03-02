@@ -4,7 +4,7 @@ require('dotenv').config()
 
 router.post('/buypubg', async (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-  const header = req.headers['authorization'] 
+  const token = req.headers['authorization'] 
   if (ip != process.env.ALLOWED_IP || token != process.env.TOKEN) {
     return res.status(401).json({error:'unauthorized'}) 
   }
